@@ -103,6 +103,7 @@ GEM
       thor (~> 0.14)
     formtastic (3.1.3)
       actionpack (>= 3.2.13)
+    geocoder (1.2.12)
     gh (0.14.0)
       addressable
       backports
@@ -115,13 +116,8 @@ GEM
     googlecharts (1.6.12)
     hashie (3.4.3)
     highline (1.7.8)
-    hostip (0.3.0)
-      httparty
     http-cookie (1.0.2)
       domain_name (~> 0.5)
-    httparty (0.13.7)
-      json (~> 1.8)
-      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
@@ -335,8 +331,8 @@ DEPENDENCIES
   factory_girl_rails
   figaro (~> 1.1, >= 1.1.1)
   formtastic (~> 3.1, >= 3.1.3)
+  geocoder (~> 1.2, >= 1.2.12)
   googlecharts (~> 1.6, >= 1.6.12)
-  hostip (~> 0.3.0)
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks (~> 2.1)
@@ -352,7 +348,6 @@ DEPENDENCIES
   rails_12factor
   rails_apps_testing
   rails_layout (~> 1.0, >= 1.0.29)
-  rest-client (~> 1.8)
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

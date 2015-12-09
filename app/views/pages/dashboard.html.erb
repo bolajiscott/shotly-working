@@ -40,8 +40,10 @@
 
             <td><%= link_to 'Details', link %></td>
             <td><%= link_to 'Edit', edit_link_path(link) %></td>
+            <% if !link.deleted %>
             <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %>
             </td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

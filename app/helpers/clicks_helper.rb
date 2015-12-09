@@ -1,9 +1,9 @@
 module ClicksHelper
-  def get_remote_ip(env)
-    if addr = env['HTTP_X_FORWARDED_FOR']
-      addr.split(',').first.strip
-    else
-      env['REMOTE_ADDR']
-    end
+  def get_remote_ip
+    request.remote_ip
+  end
+
+  def get_remote_country
+    request.location.country
   end
 end

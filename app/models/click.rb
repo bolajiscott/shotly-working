@@ -1,14 +1,6 @@
 class Click < ActiveRecord::Base
   require 'xmlsimple'
   belongs_to :link, counter_cache: true
-  after_create :set_country
-
-  def set_country
-    xml = RestClient.get "http://api.hostip.info/get_xml.php?ip=#{ip}"
-    binding.pry
-    self.country = XmlSimple.xml_in(xml.to_s, { 'ForceArray' => false })['featureMember']['Hostip']['countryAbbrev']
-    self.save
-  end
 
   def self.count_days_bar(identifier,num_of_days)
     clicks = count_by_date_with(identifier,num_of_days)
