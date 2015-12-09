@@ -15,10 +15,8 @@
   <%= @link.active %>
 </p>
 
-<p>
-  <strong>Deleted:</strong>
-  <%= @link.deleted %>
-</p>
+<img src="<%= @count_country_map %>">
+<img src="<%= @count_country_bar %>">
 
 <%= link_to 'Edit', edit_link_path(@link) %> |
-<%= link_to 'Back', links_path %>
+<%= link_to 'Back', dashboard_path %>
