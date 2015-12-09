@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h2 class="text-center">Weclome <%= current_user.name %></h2>
+      <br>
+      <%= form_tag("/links", method: :post, :html => {class: 'form-horizontal'}) do %>
+          <div class="form-group">
+            <%= text_field :link, :url, placeholder: "Enter url" ,class:"form-control input-lg" %>
+          </div>
+          <div class="form-group">
+            <%= text_field :link, :short_url, placeholder: "Enter Custom Url" ,class:"form-control input-md" %>
+          </div>
+          <div class="form-group text-center">
+            <%= submit_tag 'Shorten Url' ,class: "btn btn-primary btn-md" %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="col-sm-12  col-sm-offset-0" align ="center">
+  <h2 class="sub-header">My Links</h2>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Short Url</th>
+          <th>Clicks</th>
+          <th>Long Url</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user_links.each do |link| %>
+            <td><a  href = <%= "
+              #{display_link(link.short_url)}"%>
+              target ="_blank"><%= display_link(link.short_url)%></a>
+            </td>
+                <td></tb><span class="badge"><%= link.clicks_count %></span></td>
+            <td><%= link.url %></td>
+
+            <td><%= link_to 'Details', link %></td>
+            <td><%= link_to 'Edit', edit_link_path(link) %></td>
+            <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

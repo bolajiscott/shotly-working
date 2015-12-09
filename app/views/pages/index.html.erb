@@ -1,0 +1,68 @@
+<div class="container-fluid">
+  <div class = "row">
+    <div align = "center">
+      <h1>Shotly</h1>
+      <p><h5>MAKE YOUR URL AS SHORT AS POSSIBLE</h5></p>
+      <br>
+      <div class="col-lg-12" align = "center">
+        <%= form_tag("/links", method: :post, class: "form-inline form-horizontal") do %>
+          <div class="form-group">
+            <%= text_field :link, :url, placeholder: "Enter url" ,class:"form-control" %>
+            <%= submit_tag('Shorten Url' ,class: " btn btn-primary btn-sm") %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading">Popular</div>
+            <!-- List group -->
+            <ul class="list-group">
+              <% @popular.each do |f| %>
+              <li class="list-group-item"> <a  href = <%= "
+                #{display_link(f.short_url)}"%>
+                target ="_blank"><%= display_link(f.short_url)%></a>
+                  <span class="badge"><%= f.clicks_count %></span></li></li>
+              <% end %>
+            </ul>
+          </div>
+      </div>
+      <div class="col-sm-4">
+
+        <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading">Recent</div>
+            <!-- List group -->
+            <ul class="list-group">
+              <% @recent.each do |f| %>
+            <li class="list-group-item"> <a  href = <%= "
+              #{display_link(f.short_url)}"%>
+              target ="_blank"><%= display_link(f.short_url)%></a>
+                <span class="badge"><%= f.clicks_count %></span></li></li>
+              <% end %>
+            </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+
+        <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading">Top Users</div>
+            <!-- List group -->
+            <ul class="list-group">
+              <% @top.each do |f| %>
+              <li class="list-group-item"><%= f.name%></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
