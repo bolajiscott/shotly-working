@@ -29,6 +29,7 @@ gem 'googlecharts', '~> 1.6', '>= 1.6.12'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'formtastic', '~> 3.1', '>= 3.1.3'
 gem 'masonry-rails', '~> 0.2.4'
+gem 'will_paginate', '~> 3.0.6'
 gem 'omniauth-facebook', '~> 3.0'
 gem "omniauth-google-oauth2"
 gem 'xml-simple'
@@ -52,8 +53,10 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'pry-rails', '~> 0.3.4'
   gem 'factory_girl_rails'
+  gem 'faker', '~> 1.6', '>= 1.6.1'
   gem 'awesome_print'
   gem "travis"
+  gem 'phantomjs', :require => 'phantomjs/poltergeist'
 end
 
 group :development do
@@ -72,6 +75,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'poltergeist'
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'

@@ -14,6 +14,10 @@ class PagesController < ApplicationController
       @user_links = @user.links
   end
 
+  def error_inactive
+    render(:status => 404)
+  end
+
   private
 
   def set_auth

@@ -8,7 +8,7 @@
         <%= form_tag("/links", method: :post, class: "form-inline form-horizontal") do %>
           <div class="form-group">
             <%= text_field :link, :url, placeholder: "Enter url" ,class:"form-control" %>
-            <%= submit_tag('Shorten Url' ,class: " btn btn-primary btn-sm") %>
+            <%= submit_tag('Shorten Url', :name => nil, class: " btn btn-primary btn-sm") %>
           </div>
         <% end %>
       </div>

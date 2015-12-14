@@ -1,8 +1,7 @@
 FactoryGirl.define do
   factory :click do
-    ip ""
-country "MyString"
-referrer "MyString"
+    ip {Faker::Internet.ip_v4_address}
+    country {Faker::Address.country}
+    referrer {Faker::Internet.user_name}
   end
-
 end
