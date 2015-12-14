@@ -27,7 +27,7 @@
               <li class="list-group-item"> <a  href = <%= "
                 #{display_link(f.short_url)}"%>
                 target ="_blank"><%= display_link(f.short_url)%></a>
-                  <span class="badge"><%= f.clicks_count %></span></li></li>
+                  <span class="badge"><%= f.clicks_count %>&nbsp;<%= f.clicks_count == 1 ? "click" : "clicks" %></span></li></li>
               <% end %>
             </ul>
           </div>

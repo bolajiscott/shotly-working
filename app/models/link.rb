@@ -7,11 +7,11 @@ class Link < ActiveRecord::Base
   belongs_to :user, counter_cache: true
 
   scope :recent, lambda {
-    order("links.created_at DESC").where(deleted: false)
+    order("links.created_at DESC")
   }
 
   scope :popular, lambda {
-    order("links.clicks_count desc").where(deleted: false)
+    order("links.clicks_count desc")
   }
 
   private

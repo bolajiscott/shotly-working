@@ -94,9 +94,9 @@ class LinksController < ApplicationController
       @link.save
       redirect_to @link.url
     elsif @link.deleted
-      redirect_to root_path, notice: "Link is deleted."
+      redirect_to root_path, alert: "Link has been deleted by owner."
     else
-      redirect_to root_path, notice: "Link is inactive."
+      redirect_to root_path, alert: "Link is curently inactive."
     end
   end
 
