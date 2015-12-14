@@ -14,9 +14,19 @@
   <strong>Active:</strong>
   <%= @link.active %>
 </p>
+<div class="panel panel-default center-block">
+  <div class="panel-heading">Number of visits by country</div>
+  <div class="panel-body">
+    <img src="<%= @count_country_map %>" class="img-responsive ">
+  </div>
+</div>
 
-<img src="<%= @count_country_map %>">
-<img src="<%= @count_country_bar %>">
+<div class="panel panel-default center-block">
+  <div class="panel-heading">Number of visits</div>
+  <div class="panel-body">
+    <img src="<%= @count_country_bar %>" class="img-responsive ">
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_link_path(@link) %> |
 <%= link_to 'Back', dashboard_path %>

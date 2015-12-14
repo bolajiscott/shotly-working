@@ -1,4 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/andela-aoduola/shotly/badge.svg?branch=master&service=github)](https://coveralls.io/github/andela-aoduola/shotly?branch=master)
+[![Code Climate](https://codeclimate.com/github/andela-aoduola/shotly/badges/gpa.svg)](https://codeclimate.com/github/andela-aoduola/shotly)[![Coverage Status](https://coveralls.io/repos/andela-aoduola/shotly/badge.svg?branch=master&service=github)](https://coveralls.io/github/andela-aoduola/shotly?branch=master)
 
 # README
 ## Overview

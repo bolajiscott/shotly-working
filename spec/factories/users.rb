@@ -5,5 +5,4 @@ FactoryGirl.define do
     name "user mock"
     image_url "http://graph.facebook.com/1234567/picture?type=square"
   end
-
 end

@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe LinksController, :type => :controller do
   subject(:links) { Link.new(url: url, user_id: current_user.id)}
@@ -58,7 +58,7 @@ RSpec.describe LinksController, :type => :controller do
         }.to_not change(Link,:count)
       end
       before do
-        @request.env['HTTP_REFERER'] = 'http://test.com/pages/dashboard'
+        @request.env["HTTP_REFERER"] = "http://test.com/pages/dashboard"
       end
 
       it "re-renders the current page" do
@@ -81,7 +81,7 @@ RSpec.describe LinksController, :type => :controller do
     end
 
     it "does not update link when logged out" do
-      patch :update, { id: @link, link: {short_url: "love"}}
+      patch :update, { id: @link, link: { short_url: "love" }}
       @link.reload
       expect(@link.short_url).not_to eq("love")
     end
@@ -91,13 +91,13 @@ RSpec.describe LinksController, :type => :controller do
     before do
       @user = FactoryGirl.create(:user)
       @link = FactoryGirl.create(:link)
-      @request.env['HTTP_REFERER'] = 'http://test.com/pages/index'
+      @request.env["HTTP_REFERER"] = "http://test.com/pages/index"
     end
 
     it "sets link.delete to true" do
-      delete :destroy, { id: @link, link: {delete: true}}, user_id: @user.id
+      delete :destroy, { id: @link, link: { delete: true }}, user_id: @user.id
       @link.reload
-      expect(@link.delete).to  be_truthy
+      expect(@link.delete).to be_truthy
     end
   end
 
@@ -106,7 +106,7 @@ RSpec.describe LinksController, :type => :controller do
       @link = FactoryGirl.create(:link)
     end
     it "redirects short_url to url" do
-      get :redirect_link, id: @link
+      get :redirect_link, path: @link.short_url
       expect(response).to redirect_to @link.url
     end
   end

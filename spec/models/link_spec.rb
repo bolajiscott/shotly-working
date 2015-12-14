@@ -1,11 +1,11 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Link, type: :model do
   it "has a valid factory" do
     expect(FactoryGirl.create(:link)).to be_valid
   end
 
-  it 'is invalid without a url' do
+  it "is invalid without a url" do
     expect(FactoryGirl.build(:invalid_link)).not_to be_valid
   end
 

@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe PagesController, :type => :controller do
+RSpec.describe PagesController, type: :controller do
   before :each do
     @user = FactoryGirl.create(:user)
     @link = FactoryGirl.create(:link)
@@ -23,12 +23,12 @@ RSpec.describe PagesController, :type => :controller do
 
   describe "GET dashboard" do
     it "displays user links when logged in" do
-      get :dashboard, {id: @link.id}, user_id: @user.id
+      get :dashboard, { id: @link.id }, user_id: @user.id
       expect(response).to render_template(:dashboard)
     end
 
     it "does not displays user links when logged out" do
-      get :dashboard, {id: @link.id}
+      get :dashboard, id: @link.id
       expect(response).to redirect_to root_path
     end
   end

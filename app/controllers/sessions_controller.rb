@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def create
     auth = request.env["omniauth.auth"]
-    session[:omniauth] = auth.except('extra')
+    session[:omniauth] = auth.except("extra")
     user = User.sign_in_from_omniauth(auth)
     session[:user_id] = user.id
     redirect_to dashboard_url, notice: "SIGNED IN"
@@ -14,6 +14,6 @@ class SessionsController < ApplicationController
   end
 
   def auth_failure
-    redirect_to root_path
+    redirect_to root_path, alert: "Authentication failed, please try again."
   end
 end

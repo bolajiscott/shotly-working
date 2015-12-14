@@ -16,7 +16,7 @@ class LinksController < ApplicationController
     @link = Link.find(params[:id])
     @num_of_days = (params[:num_of_days] || 15).to_i
     @count_days_bar = Click.count_days_bar(params[:id], @num_of_days)
-    chart = Click.count_country_chart(params[:id], params[:map] || 'world')
+    chart = Click.count_country_chart(params[:id], params[:map] || "world")
     @count_country_map = chart[:map]
     @count_country_bar = chart[:bar]
   end
@@ -30,7 +30,6 @@ class LinksController < ApplicationController
   def edit
   end
 
-
   # POST /links
   # POST /links.json
   def create
@@ -40,14 +39,18 @@ class LinksController < ApplicationController
     respond_to do |format|
       if @link.save
         if current_user
-          format.html { redirect_to dashboard_path, notice: 'Link was successfully created.' }
+          format.html do
+            redirect_to dashboard_path, notice: "Link was successfully created."
+          end
         else
-          format.html { redirect_to root_path, notice: 'Link was successfully created.' }
+          format.html do
+            redirect_to root_path, notice: "Link was successfully created."
+          end
           format.json { render :show, status: :created, location: @link }
         end
       else
         flash[:error] = "Url field is empty, please enter information."
-        format.html { redirect_to :back  }
+        format.html { redirect_to :back }
         format.json { render json: @link.errors, status: :unprocessable_entity }
       end
     end
@@ -58,7 +61,9 @@ class LinksController < ApplicationController
   def update
     respond_to do |format|
       if @link.update(link_params)
-        format.html { redirect_to dashboard_path, notice: 'Link was successfully updated.' }
+        format.html do
+          redirect_to dashboard_path, notice: "Link was successfully updated."
+        end
         format.json { render :show, status: :ok, location: @link }
       else
         format.html { render :edit }
@@ -73,7 +78,9 @@ class LinksController < ApplicationController
     @link.update deleted: true
     # @link.destroy
     respond_to do |format|
-      format.html { redirect_to :back, notice: 'Link was successfully destroyed.' }
+      format.html do
+        redirect_to :back, notice: "Link was successfully destroyed."
+      end
       format.json { head :no_content }
     end
   end
@@ -94,13 +101,12 @@ class LinksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_link
-      @link = Link.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def link_params
-      params.require(:link).permit(:id, :url, :short_url, :active, :deleted)
-    end
+  def set_link
+    @link = Link.find(params[:id])
+  end
+
+  def link_params
+    params.require(:link).permit(:id, :url, :short_url, :active, :deleted)
+  end
 end
